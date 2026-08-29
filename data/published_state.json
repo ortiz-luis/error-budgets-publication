@@ -1,0 +1,13 @@
+{
+  "schema_version": "error-budgets-publication-1.0",
+  "publication_id": "manual-publication-seed-2026-08-29",
+  "generated_at": "2026-08-29T00:05:20Z",
+  "operations": [
+    {"id":"1q","short_name":"1Q Gates","title":"1Q Gate Fidelity","status":"AT_RISK","fidelity_pct":92.40,"fidelity_uncertainty_pp":0.40,"target_fidelity_pct":99.90,"gap_to_target_pp":-7.50,"live_at":"2026-08-27"},
+    {"id":"2q","short_name":"2Q Gates","title":"2Q Gate Fidelity","status":"AT_RISK","fidelity_pct":91.20,"fidelity_uncertainty_pp":0.50,"target_fidelity_pct":99.70,"gap_to_target_pp":-8.50,"live_at":"2026-08-28"},
+    {"id":"movement","short_name":"Movement / Shuttling","title":"Movement Fidelity","status":"AT_RISK","fidelity_pct":87.20,"fidelity_uncertainty_pp":0.70,"target_fidelity_pct":99.50,"gap_to_target_pp":-12.30,"live_at":"2026-08-27"},
+    {"id":"initialization","short_name":"State Preparation","title":"State Preparation Fidelity","status":"ON_TRACK","fidelity_pct":99.75,"fidelity_uncertainty_pp":0.07,"target_fidelity_pct":99.50,"gap_to_target_pp":0.25,"live_at":"2026-08-27"},
+    {"id":"readout","short_name":"Readout / SPAM","title":"Readout Fidelity","status":"ON_TRACK","fidelity_pct":99.83,"fidelity_uncertainty_pp":0.05,"target_fidelity_pct":99.50,"gap_to_target_pp":0.33,"live_at":"2026-08-27"},
+    {"id":"addressability","short_name":"Addressability","title":"Addressability Fidelity","status":"AT_RISK","fidelity_pct":99.70,"fidelity_uncertainty_pp":0.08,"target_fidelity_pct":99.80,"gap_to_target_pp":-0.10,"live_at":"2026-08-27"}
+  ]
+}
