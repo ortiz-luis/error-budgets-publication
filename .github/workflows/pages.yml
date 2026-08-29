@@ -1,0 +1,46 @@
+name: Deploy Sanitized Error Budgets Publication
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-publication
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout sanitized publication
+        uses: actions/checkout@v4
+      - name: Assert public allowlist boundary
+        shell: bash
+        run: |
+          test -f index.html
+          test -f embed-v2/index.html
+          test -f data/published_state.json
+          test -f data/published_detail_state.json
+          test ! -e public/error-budgets/data/dashboard.json
+          test ! -d public/error-budgets/scripts
+          ! find . -path './.git' -prune -o -type f -print | grep -E 'PRIVATE_SENTINEL_MUST_NEVER_BE_PUBLISHED|error-budgets-data/'
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
